@@ -34,7 +34,7 @@
  * and contributors of zlib.
  */
 
-var Deflater = (function(obj) {
+var Deflater = (function() {
 
 	// Global
 
@@ -2053,4 +2053,5 @@ var Deflater = (function(obj) {
 			return array;
 		};
 	};
-})(this);
+})();
+module.exports = Deflater;

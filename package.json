@@ -3,15 +3,17 @@
   "version": "1.0.272",
   "description": "PDF Document creation from JavaScript",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dist": "webpack --config webpack.config.debug.js && webpack --config webpack.config.min.js",
+    "node": "webpack --config webpack.config.node.js"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/MrRio/jsPDF.git"
   },
-  "dependencies": {
-  },
+  "main": "src/jspdf.js",
   "devDependencies": {
+    "imports-loader": "^0.6.3",
+    "webpack": "^1.7.3"
   }
 }

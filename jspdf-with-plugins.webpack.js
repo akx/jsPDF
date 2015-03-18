@@ -1,0 +1,16 @@
+var jsPDF = require("imports?define=>false!./jspdf.js");
+require("jspdf-plugin!./jspdf.plugin.addhtml.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.addimage.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.annotations.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.autoprint.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.cell.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.context2d.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.from_html.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.javascript.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.outline.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.png_support.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.sillysvgrenderer.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.split_text_to_size.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.standard_fonts_metrics.js")(jsPDF);
+require("jspdf-plugin!./jspdf.plugin.total_pages.js")(jsPDF);
+module.exports = jsPDF;

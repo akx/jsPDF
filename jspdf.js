@@ -84,6 +84,10 @@ var jsPDF = (function(global) {
 			'credit-card'       : [153,   243]
 		};
 
+	var saveAs = require("./libs/FileSaver.js");
+	var adler32cs = require("./libs/adler32cs.js");
+	var Deflater = require("./libs/Deflater.js");
+
 	/**
 	 * jsPDF's Internal PubSub Implementation.
 	 * See mrrio.github.io/jsPDF/doc/symbols/PubSub.html
@@ -1916,11 +1920,12 @@ var jsPDF = (function(global) {
 	 */
 	jsPDF.API = {events:[]};
 	jsPDF.version = "1.0.0-trunk";
-
 	if (typeof define === 'function' && define.amd) {
 		define('jsPDF', function() {
 			return jsPDF;
 		});
+	} else if(typeof module !== 'undefined') {
+		module.exports = jsPDF;
 	} else {
 		global.jsPDF = jsPDF;
 	}
