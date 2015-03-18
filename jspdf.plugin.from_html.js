@@ -29,6 +29,18 @@
  */
 
 (function (jsPDFAPI) {
+	function trim(string) {
+		return ("" + string).replace(/^\s+|\s+$/g, '');
+	}
+
+	function trimLeft(string) {
+		return ("" + string).replace(/^\s+/g, "");
+	}
+
+	function trimRight(string) {
+		return ("" + string).replace(/\s+$/g, "");
+	}
+
 	var clone,
 	DrillForContent,
 	FontNameDB,
@@ -69,7 +81,7 @@
 		lTrimmed = false;
 		rTrimmed = false;
 		while (!lTrimmed && i !== l) {
-			fragment = array[i] = array[i].trimLeft();
+			fragment = array[i] = trimLeft(array[i]);
 			if (fragment) {
 				lTrimmed = true;
 			}
@@ -77,7 +89,7 @@
 		}
 		i = l - 1;
 		while (l && !rTrimmed && i !== -1) {
-			fragment = array[i] = array[i].trimRight();
+			fragment = array[i] = trimRight(array[i]);
 			if (fragment) {
 				rTrimmed = true;
 			}
@@ -89,7 +101,7 @@
 		while (i !== l) {
 			fragment = array[i].replace(/\s+/g, " ");
 			if (trailingSpace) {
-				fragment = fragment.trimLeft();
+				fragment = trimLeft(fragment);
 			}
 			if (fragment) {
 				trailingSpace = r.test(fragment);
@@ -825,7 +837,7 @@
 			blockstyle : {},
 			priorblockstyle : blockstyle
 		};
-		if (!fragments.join("").trim()) {
+		if (!trim(fragments.join(""))) {
 			return;
 		}
 		lines = this.splitFragmentsIntoLines(fragments, styles);
@@ -853,7 +865,7 @@
 			i = 0;
 			l = line.length;
 			while (i !== l) {
-				if (line[i][0].trim()) {
+				if (trim(line[i][0])) {
 					maxLineHeight = Math.max(maxLineHeight, line[i][1]["line-height"], line[i][1]["font-size"]);
 					fontSize = line[i][1]["font-size"] * 7;
 				}

@@ -177,20 +177,5 @@
 		}());
 	}
 
-	if (!String.prototype.trim) {
-		String.prototype.trim = function () {
-			return this.replace(/^\s+|\s+$/g, '');
-		};
-	}
-	if (!String.prototype.trimLeft) {
-		String.prototype.trimLeft = function() {
-			return this.replace(/^\s+/g, "");
-		};
-	}
-	if (!String.prototype.trimRight) {
-		String.prototype.trimRight = function() {
-			return this.replace(/\s+$/g, "");
-		};
-	}
 
 })(typeof self !== "undefined" && self || typeof window !== "undefined" && window || this);
